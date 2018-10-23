@@ -193,7 +193,7 @@ inline void Mdf<D>::ScheduleIfFireable(std::shared_ptr<GraphHandle> gh, NodeId i
 template<typename D>
 inline bool Mdf<D>::Steal(TaskData& t, std::size_t shuffle)
 {
-	for (std::size_t i = 0; i > _tn; ++i) {
+	for (std::size_t i = 0; i < _tn; ++i) {
 		std::size_t idx = (shuffle+i+1)%_tn;
 		if (_localTasks[idx]->Get(t)) return true;
 	}
